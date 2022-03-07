@@ -1,0 +1,16 @@
+[rpc.request_limits]
+account_info = 100000 # concurrent getAccountinfo requests to validator
+program_accounts = 500000 # concurrent getProgramAccounts requests to validator
+
+[rpc.request_queue_size]
+account_info = 100000 # number of getAccountinfo requests that can wait in queue before making request to validator
+program_accounts = 100000 # number of getProgramAccounts requests that can wait in queue before making request to validator
+
+[rpc]
+ignore_base58_limit = true
+
+[rpc.timeouts]
+account_info_request = 30 # timeout in seconds, before getAccountinfo is aborted
+program_accounts_request = 60 # timeout in seconds, before getProgramAccounts is aborted
+account_info_backoff = 30 # time duration during which getAccountinfo will be repeatedly retried, in case of failure
+program_accounts_backoff = 60 # time duration during which getProgramAccounts will be repeatedly retried, in case of failure
